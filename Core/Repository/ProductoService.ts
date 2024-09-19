@@ -18,9 +18,9 @@ export class ProductoService implements IProductoService {
 
   async GetAll(): Promise<any | null> {
     try {
-      console.log("consultar")
+    
       let result = await this.IStoreProcedureRepository.GetAll();
-      console.log(result)
+   
       if (result !== null) {
         return Promise.resolve(result);
       }

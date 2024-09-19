@@ -69,8 +69,7 @@ export class ProductoController {
 
   @httpGet("/getAll")
   async GeAll(res: Response) {
-    try {
-        
+    try {        
       const producto = await this.ProductoService.GetAll();
       if (producto !== null) {
         return res.status(200).send(producto);

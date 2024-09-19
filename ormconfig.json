@@ -1,0 +1,14 @@
+{
+    "type": "mssql",
+    "host": "DESKTOP-58J73J1\\SQLEXPRESS",
+    "port": 1434,
+    "username": "usrManejorh",
+    "password": "usrManejorh",
+    "database": "PruebaServicio",
+    "synchronize": true,
+    "logging": false,
+    "entities": ["Domain/Entities/**/*.ts"],
+    "options": {
+      "encrypt": false
+    }
+  }
