@@ -12,7 +12,7 @@ import { TYPES } from "../Domain/Utils/Type";
 
 @controller("/producto")
 export class ProductoController {
-  private ProductoService: IProductoService;
+  private readonly ProductoService: IProductoService;
 
   /**
    *
@@ -70,12 +70,8 @@ export class ProductoController {
   @httpGet("/getAll")
   async GeAll(res: Response) {
     try {        
-      const producto = await this.ProductoService.GetAll();
-      if (producto !== null) {
-        return res.status(200).send(producto);
-      }
-
-      return res.status(404).send(producto);
+      const producto = await this.ProductoService.GetAll();  
+      return producto; 
     } catch (error: any) {
       return res.status(500).send("error: " + error.message);
     }

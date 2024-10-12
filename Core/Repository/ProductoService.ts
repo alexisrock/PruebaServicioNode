@@ -12,28 +12,37 @@ export class ProductoService implements IProductoService {
   IStoreProcedureRepository: IStoreProcedureRepository;
   baseResponse = new BaseResponse();
 
-  constructor( @inject(TYPES.IStoreProcedureRepository) IStoreProcedureRepository: IStoreProcedureRepository  ) {
+  constructor(
+    @inject(TYPES.IStoreProcedureRepository)
+    IStoreProcedureRepository: IStoreProcedureRepository
+  ) {
     this.IStoreProcedureRepository = IStoreProcedureRepository;
   }
 
-  async GetAll(): Promise<any | null> {
+  async GetAll(): Promise<Producto[] | null> {
+    let produclist:Producto[] =[];
     try {
-    
       let result = await this.IStoreProcedureRepository.GetAll();
-   
-      if (result !== null) {
-        return Promise.resolve(result);
+  
+      for(let index of result) {       
+        let element = this.MapperproductResponse(index);
+        produclist.push(element)
       }
+      
+      if (produclist !== null) {
+        return Promise.resolve(produclist);
+      }
+
+      return Promise.resolve(null);
     } catch (error: any) {
-      console.log("error "+error)
       return error;
     }
   }
 
   async Insert(req: Request): Promise<BaseResponse> {
     try {
-      let productoAdd = new ProductoAdd();
-      productoAdd = this.MapperProduct(req);
+      
+      let productoAdd = this.MapperProduct(req);
       await this.IStoreProcedureRepository.Insert(productoAdd);
       this.baseResponse.Mensaje = "Producto creado con exito";
     } catch (error: any) {
@@ -53,8 +62,7 @@ export class ProductoService implements IProductoService {
 
   async Update(req: Request): Promise<BaseResponse> {
     try {
-      let producto = new Producto();
-      producto = this.MapperProductUpdate(req);
+      let producto =  this.MapperProductUpdate(req);
       await this.IStoreProcedureRepository.Update(producto);
       this.baseResponse.Mensaje = "Producto actualizado con exito";
     } catch (error: any) {
@@ -84,15 +92,29 @@ export class ProductoService implements IProductoService {
   }
 
   async GetByIdProduct(id: number): Promise<Producto | null> {
+  
     try {
       let result = await this.IStoreProcedureRepository.GetByIdProduct(id);
       if (result !== null) {
-        return Promise.resolve(result);
+      let producto  = this.MapperproductResponse(result);
+        return Promise.resolve(producto);
       }
       return null;
     } catch (error: any) {
-      console.log("error "+error)
+       
       return error;
     }
+  }
+
+  MapperproductResponse(resul: any) {
+    let producto = new Producto();
+    const { Id, Name, Description, Price, Stock } = resul;
+    producto.Id = Id;
+    producto.Description = Description;
+    producto.Name = Name;
+    producto.Price = Price;
+    producto.Stock = Stock;
+
+    return producto;
   }
 }
