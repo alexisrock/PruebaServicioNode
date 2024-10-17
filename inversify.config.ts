@@ -14,10 +14,7 @@ import { TYPES } from './Domain/Utils/Type';
 
 
 const container = new Container();
- 
-
 container.bind(ProductoController).toSelf().inSingletonScope();
- 
 container.bind<IStoreProcedureRepository>(TYPES.IStoreProcedureRepository).to(StoreProcedureRepository);
 container.bind<IProductoService>(TYPES.IProductoService).to(ProductoService);
 
