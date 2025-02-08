@@ -21,9 +21,8 @@ Esta api fue creada con una arquitectura limpia, la capa de infraestructura esta
      
 <ul> 
         <li> se debe tener instalado sql server o tener acceso auna instancia sql server</li> 
-        <li> crear la base de datos BuildingDB </li> 
-        <li> crear el usuario de base de datos  UsrDeveloper con la misma contraseña  </li> 
-        <li> ubicar la carpeta  ScriptSql </li> 
+        <li> crear la base de datos PruebaServicio </li> 
+        <li> crear el usuario de base de datos  usrManejorh con la misma contraseña  </li>  
         <li> abrir el archivo InitialQuery.sql que esta en la carpeta anteriormente mencionada </li> 
         <li> ejecutar el script </li> 
 
@@ -36,10 +35,8 @@ Esta api fue creada con una arquitectura limpia, la capa de infraestructura esta
 <p>
      
 <ul> 
-        <li> se debe primero tener instalado el sdk de net 6 </li> 
-        <li> ubicar la carpeta Api y dentro de esa carpeta ejecutar el comadno "dotnet restore"  </li> 
-        <li> luego  ejecutar el comadno "dotnet build --no-restore"  </li> 
-        <li> luego  ejecutar el comadno "dotnet public -o rutaarchivos"  </li> 
+        <li> se debe primero tener instalado node js </li> 
+ 
 </ul>
 </p>
 
