@@ -1,4 +1,4 @@
-import { IStoreProcedureRepository } from "../Interface/IStoreProcedureRepository";
+import { IStoreProcedureRepository } from "../../Domain/Interfaces/IStoreProcedureRepository";
 import { Producto } from "../../Domain/Entities/Producto";
 import { ProductoAdd } from "../../Domain/Entities/ProductoAdd";
 import { Conection } from "../Conection";

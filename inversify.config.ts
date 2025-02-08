@@ -1,12 +1,12 @@
 import { Container } from 'inversify';
-import { IStoreProcedureRepository } from './DataAccess/Interface/IStoreProcedureRepository';
-import { StoreProcedureRepository } from './DataAccess/Implement/StoreProcedureRepository';
+import { IStoreProcedureRepository } from './Domain/Interfaces/IStoreProcedureRepository';
+import { StoreProcedureRepository } from './Infraestructure/Implement/StoreProcedureRepository';
 
-import {  IProductoService } from './Core/Interface/IProductoService';
-import {  ProductoService } from './Core/Repository/ProductoService';
+import {  IProductoService } from './Aplication/Interface/IProductoService';
+import {  ProductoService } from './Aplication/Repository/ProductoService';
 
 
-import { ProductoController } from './Presentacion/ProductoController';
+import { ProductoController } from './Presentation/ProductoController';
 
 import { TYPES } from './Domain/Utils/Type';
  

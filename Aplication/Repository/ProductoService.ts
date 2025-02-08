@@ -1,4 +1,4 @@
-import { IStoreProcedureRepository } from "../../DataAccess/Interface/IStoreProcedureRepository";
+import { IStoreProcedureRepository } from "../../Domain/Interfaces/IStoreProcedureRepository";
 import { IProductoService } from "../Interface/IProductoService";
 import { inject, injectable } from "inversify";
 import { TYPES } from "../../Domain/Utils/Type";
